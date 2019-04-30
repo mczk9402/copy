@@ -1,0 +1,124 @@
+@charset "utf-8";
+
+@import "variable";
+@import "reset";
+
+body{
+    height:5000px;
+}
+
+.header{
+    @include flex($justify:space-between);
+    position:sticky;
+    top:0;
+    z-index:999;
+    padding:0 3%;
+    background:rgba(255, 255, 255, 1);
+}
+
+.header__logo{
+    @include flex($align:center);
+    &__link__logo{
+        height:(100px-47px);
+    }
+}
+
+.header__nav{
+    @include flex();
+    width:640px;
+    &__link + &__link{
+        margin-left: 1%;
+    }
+    &__link{
+        @include flex($direction:column-reverse,$wrap:nowrap);
+        padding:(47px/2) 11px;
+        text-align: center;
+        word-break: keep-all;
+        font-size: 1.3rem;
+        font-weight:700;
+        letter-spacing: .075em;
+        &__lavel{
+            margin-top: 10px;
+        }
+        &__icon{
+            height:30px;
+        }
+    }
+}
+
+.section-kv{
+    @include flex($direction:column,$justify:flex-end);
+    position: relative;
+    height:calc(100vh - 100px);
+    padding:3%;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: .2em;
+    color:#fff;
+    background:linear-gradient(transparent, rgba(0, 0, 255, .3));
+    &__catch{
+        padding:25px 0;
+        font-size:3.6rem;
+    }
+    &__lead{
+        font-size: 1.4rem;
+    }
+    &::before{
+        display: block;
+        content:"";
+        position: absolute;
+        top:0;
+        left:0;
+        z-index:-1;
+        width:100%;
+        height:100%;
+        background:url("../images/mainvisual_img01.jpg") no-repeat center center / cover;
+    }
+}
+
+.section-kv__schedule{
+    position: absolute;
+    top:75%;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    margin: auto;
+    padding:40px 3%;
+    text-align: left;
+    font-size: 1.4rem;
+    color:$text;
+    background:#fff;
+    &::before,
+    &::after{
+        display: block;
+        content:"";
+        position: absolute;
+        bottom: 100%;
+        margin: auto;
+        width:60px;
+        height:50px;
+        background:url("https://nanairokodomo.com/images/main_catch_img01.svg") no-repeat center top / cover;
+    }
+    &::before{
+        left:30px;
+    }
+    &::after{
+        right:30px;
+        height:40px;
+        background:url("https://nanairokodomo.com/images/main_catch_img02.svg") no-repeat center top / cover;
+    }
+    &__table{
+        width:100%;
+        margin-bottom: 10px;
+        line-height: 2.5;
+        &__row{
+            border-bottom: 1px solid #000;
+        }
+    }
+    &__def{
+        @include flex();
+        &__description{
+            font-size: 2.8rem;
+        }
+    }
+}
